@@ -57,6 +57,7 @@ void operator delete(void* pMem)
 	size_t memory = pHeader->size + sizeof(Header) + sizeof(Footer);
 	std::cout << "Removed " << memory << " bytes.\n";
 	MemoryTracker::RemoveBytesTracker(memory, pHeader->memoryType);
+	MemoryTracker::Remove(pHeader);
 
 	free(pHeader);
 }
@@ -101,7 +102,6 @@ Tracker* MemoryTracker::GetTracker(MemoryType trackerType)
 std::vector<Tracker*> MemoryTracker::m_trackers;
 Tracker* MemoryTracker::m_defaultTracker = nullptr;
 Header* MemoryTracker::m_pFirstHeader = nullptr;
-MemoryPool MemoryTracker::m_memPool;
 
 Tracker* MemoryTracker::GetDefaultTracker()
 {
@@ -110,23 +110,7 @@ Tracker* MemoryTracker::GetDefaultTracker()
 	
 	// if there is no default tracker make one
 	m_defaultTracker = new Tracker();
-	m_memPool = MemoryPool();
 	return m_defaultTracker;
-}
-
-void* MemoryTracker::GetMemory(const size_t& memSize)
-{
-	return m_memPool.GetMemory(memSize);
-}
-
-void MemoryTracker::FreeMemory(void* memBlock, const size_t& memBlockSize)
-{
-	m_memPool.FreeMemory(memBlock, memBlockSize);
-}
-
-void MemoryTracker::PrintInfo()
-{
-	m_memPool.PrintInfo();
 }
 
 void MemoryTracker::AddBytesTracker(size_t bytes, MemoryType trackerType)

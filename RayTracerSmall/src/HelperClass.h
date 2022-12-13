@@ -81,7 +81,6 @@ private: // variables
     static std::vector<Tracker*> m_trackers;
     static Tracker* m_defaultTracker;
     static Header* m_pFirstHeader;
-    static MemoryPool m_memPool;
 };
 
 #endif

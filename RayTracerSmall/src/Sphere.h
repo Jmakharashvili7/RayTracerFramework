@@ -22,6 +22,9 @@ public:
 	{ /* empty */
 	}
 
+	Sphere() {}
+	~Sphere() {}
+
 	void Initialize(
 		const Vec3f& c,
 		const float& r,

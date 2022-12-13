@@ -17,7 +17,7 @@ public:
 	template<typename Function_Type>
 	static void AddJob(Function_Type f)
 	{
-#ifdef _WI32
+#ifdef _WIN32
 		m_threads.push_back(std::thread(f));
 #else
         pid_t id = vfork();

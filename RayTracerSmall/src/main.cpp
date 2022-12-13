@@ -16,7 +16,7 @@
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
-//
+// 
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // [/ignore]
@@ -72,6 +72,8 @@ using json = nlohmann::json;
 #define SS_THREAD_COUNT 10
 #define REND_THREAD_COUNT 10
 #endif
+
+#define SPHERE_COUNT 4
 #define FRAME_COUNT 120
 #define SS_USE_THREADS
 #define REND_USE_THREADSS
@@ -126,16 +128,16 @@ void WriteToDisk()
 // the background color.
 //[/comment]
 Vec3f trace(
-	const Vec3f& rayorig,
-	const Vec3f& raydir,
-	const std::vector<Sphere> &spheres,
-	const int& depth)
+	const Vec3f&  rayorig,
+	const Vec3f&  raydir,
+	const Sphere* spheres,
+	const int&    depth)
 {
 	//if (raydir.length() != 1) std::cerr << "Error " << raydir << std::endl;
 	float tnear = INFINITY;
 	const Sphere* sphere = NULL;
 	// find intersection of this ray with the sphere in the scene
-	for (unsigned i = 0; i < spheres.size(); ++i) {
+	for (uint i = 0; i < SPHERE_COUNT; ++i) {
 		float t0 = INFINITY, t1 = INFINITY;
 		//std::cout << rayorig.length() << std::endl;
 		//std::cout << raydir.length() << std::endl;
@@ -188,13 +190,13 @@ Vec3f trace(
 	}
 	else {
 		// it's a diffuse object, no need to raytrace any further
-		for (unsigned i = 0; i < spheres.size(); ++i) {
+		for (uint i = 0; i < SPHERE_COUNT; ++i) {
 			if (spheres[i].emissionColor.x > 0) {
 				// this is a light
 				Vec3f transmission = 1;
 				Vec3f lightDirection = spheres[i].center - phit;
 				lightDirection.normalize();
-				for (unsigned j = 0; j < spheres.size(); ++j) {
+				for (unsigned j = 0; j < SPHERE_COUNT; ++j) {
 					if (i != j) {
 						float t0, t1;
 						if (spheres[j].intersect(phit + nhit * bias, lightDirection, t0, t1)) {
@@ -212,10 +214,10 @@ Vec3f trace(
 	return surfaceColor + sphere->emissionColor;
 }
 
-void DoTracing(int batchSize, int index, int width, float invHeight, float invWidth, float angle, float aspectRatio, Vec3f* image, std::vector<Sphere>& spheres)
+void DoTracing(int batchSize, int index, int width, float invHeight, float invWidth, float angle, float aspectRatio, Vec3f* image, Sphere* spheres)
 {
-	for (int i = 0; i < batchSize; ++i) {
-		for (int x = 0; x < width; ++x) {
+	for (uint i = 0; i < batchSize; ++i) {
+		for (uint x = 0; x < width; ++x) {
 			int y = i + (batchSize * index);
 			float xx = (2 * ((x + 0.5) * invWidth) - 1) * angle * aspectRatio;
 			float yy = (1 - 2 * ((y + 0.5) * invHeight)) * angle;
@@ -232,7 +234,7 @@ void DoTracing(int batchSize, int index, int width, float invHeight, float invWi
 // trace it and return a color. If the ray hits a sphere, we return the color of the
 // sphere at the intersection point, else we return the background color.
 //[/comment]
-void render(const std::vector<Sphere>& spheres, unsigned int iteration)
+void render(const Sphere* spheres, unsigned int iteration)
 {
 	// Testing Resolution
 	unsigned width = 640, height = 480;
@@ -262,7 +264,7 @@ void render(const std::vector<Sphere>& spheres, unsigned int iteration)
 #else
 	uint imgIndex = 0;
 	for (uint y = 0; y < height; ++y) {
-		for (unsigned x = 0; x < width; ++x) {
+		for (uint x = 0; x < width; ++x) {
 			int index = y * width + x;
 			float xx = (2 * ((x + 0.5) * invWidth) - 1) * angle * aspectratio;
 			float yy = (1 - 2 * ((y + 0.5) * invHeight)) * angle;
@@ -293,31 +295,35 @@ void render(const std::vector<Sphere>& spheres, unsigned int iteration)
 	delete[] image;
 }
 
-void RenderBatch(std::vector<Sphere> spheres, const uint& sphereIndex, const int& r, const int& batchSize)
+void RenderBatch(Sphere* spheres, const uint& sphereIndex, const int& r, const int& batchSize)
 {
+	Sphere* spheresCopy = new Sphere[SPHERE_COUNT];
+	for (uint i = 0; i < SPHERE_COUNT; ++i)
+	{
+		spheresCopy[i] = spheres[i];
+	}
+
 	for (float i = 0; i < batchSize; i++)
 	{
-		std::vector<Sphere> sphereCopy = spheres;
-
 		float index = ((r * batchSize) + i);
 		float rad = index / 100;
-		sphereCopy[sphereIndex].radius = rad;
-		sphereCopy[sphereIndex].radius2 = rad * rad;
+		spheresCopy[sphereIndex].radius = rad;
+		spheresCopy[sphereIndex].radius2 = rad * rad;
 
-		render(sphereCopy, index);
+		render(spheresCopy, index);
 		std::cout << "Rendered and saved spheres" << index+1 << ".ppm" << std::endl;
 
-		sphereCopy.clear();
 	}
+		delete[] spheresCopy;
 }
 
-void SmoothScaling(std::vector<Sphere> spheres, const uint& sphereIndex)
+void SmoothScaling(Sphere* spheres, const uint& sphereIndex)
 {
 #ifdef SS_USE_THREADS
-	int batchSize = FRAME_COUNT/SS_THREAD_COUNT; // set how many frames should one thread make
+	uint batchSize = FRAME_COUNT/SS_THREAD_COUNT; // set how many frames should one thread make
 
 	// start the threads
-	for (float i = 0; i < SS_THREAD_COUNT; i++)
+	for (float i = 0; i < SS_THREAD_COUNT; ++i)
 	{
         ThreadPool::AddJob([spheres, sphereIndex, i, batchSize] { RenderBatch(spheres, sphereIndex, i, batchSize); });
 	}
@@ -346,12 +352,11 @@ int main(int argc, char **argv)
 {
 	auto start = std::chrono::steady_clock::now();
 	MemoryPool* memPool = new MemoryPool();
-	std::vector<Sphere> spheres;
+	Sphere* spheres = new Sphere[SPHERE_COUNT];
 
-	uint sphereCount = 4;
-	for (uint i = 1; i <= sphereCount; i++)
+	for (uint i = 0; i < SPHERE_COUNT; ++i)
 	{
-		spheres.push_back(LoadSphereFromDisk("Sphere" + std::to_string(i) + ".json"));
+		spheres[i] = LoadSphereFromDisk("Sphere" + std::to_string(i+1) + ".json");
 	}
 
 	// This sample only allows one choice per program execution. Feel free to improve upon this
@@ -372,7 +377,7 @@ int main(int argc, char **argv)
 
 	memPool->PrintInfo();
 
-	spheres.clear();
+	delete[] spheres;
 	delete memPool;
 	return 0;
 }
