@@ -15,17 +15,32 @@ class ThreadPool
 {
 public:
 	template<typename Function_Type>
-	static void AddTask(Function_Type f)
+	static void AddJob(Function_Type f)
 	{
+#ifdef _WI32
 		m_threads.push_back(std::thread(f));
+#else
+        pid_t id = vfork();
+        if (id < 0)
+            printf("Fork error: not created as if <0!");
+        else if (id == 0)
+        {
+            m_forkIDs.push_back(id);
+            f();
+            _exit(0);
+        }
+        else {
+
+        }
+#endif
 	}
-	static void WaitAllThreads();
+	static void WaitAllJobs();
 private:
 	ThreadPool() {}
 	~ThreadPool() {}
 #ifdef _WIN32
 	static std::vector<std::thread> m_threads;
 #else
-	static std::vector<pid_t> m_threads;
+	static std::vector<pid_t> m_forkIDs;
 #endif
 };

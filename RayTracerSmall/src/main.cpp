@@ -27,10 +27,10 @@
 #include <vector>
 #include <iostream>
 #include <cassert>
-#include <intrin.h>
 #include "ThreadPool.h"
 #include "Sphere.h"
 #include "Vector3.h"
+#include "chrono"
 #include "MemoryPool.h"
 #include "json.h"
 #ifdef _WIN32
@@ -65,9 +65,13 @@ using json = nlohmann::json;
 // SS_USE_THREAD = use threads for smooth scaling if defined
 // REND_USE_THREADS = use threads for render if defined
 //[/comment]
-int threadMax = std::thread::hardware_concurrency();
-#define SS_THREAD_COUNT threadMax
-#define REND_THREAD_COUNT threadMax
+#ifdef _WIN32
+#define SS_THREAD_COUNT std::thread::hardware_concurrency()
+#define REND_THREAD_COUNT std::thread::hardware_concurrency()
+#else
+#define SS_THREAD_COUNT 10
+#define REND_THREAD_COUNT 10
+#endif
 #define FRAME_COUNT 120
 #define SS_USE_THREADS
 #define REND_USE_THREADSS
@@ -291,7 +295,7 @@ void render(const std::vector<Sphere>& spheres, unsigned int iteration)
 
 void RenderBatch(std::vector<Sphere> spheres, const uint& sphereIndex, const int& r, const int& batchSize)
 {
-	for (float i = 0; i <= batchSize; i++)
+	for (float i = 0; i < batchSize; i++)
 	{
 		std::vector<Sphere> sphereCopy = spheres;
 
@@ -301,7 +305,7 @@ void RenderBatch(std::vector<Sphere> spheres, const uint& sphereIndex, const int
 		sphereCopy[sphereIndex].radius2 = rad * rad;
 
 		render(sphereCopy, index);
-		std::cout << "Rendered and saved spheres" << index << ".ppm" << std::endl;
+		std::cout << "Rendered and saved spheres" << index+1 << ".ppm" << std::endl;
 
 		sphereCopy.clear();
 	}
@@ -310,16 +314,15 @@ void RenderBatch(std::vector<Sphere> spheres, const uint& sphereIndex, const int
 void SmoothScaling(std::vector<Sphere> spheres, const uint& sphereIndex)
 {
 #ifdef SS_USE_THREADS
-	std::vector<std::thread> threads;
 	int batchSize = FRAME_COUNT/SS_THREAD_COUNT; // set how many frames should one thread make
 
 	// start the threads
 	for (float i = 0; i < SS_THREAD_COUNT; i++)
 	{
-		ThreadPool::AddTask([spheres, sphereIndex, i, batchSize] { RenderBatch(spheres, sphereIndex, i, batchSize); });
+        ThreadPool::AddJob([spheres, sphereIndex, i, batchSize] { RenderBatch(spheres, sphereIndex, i, batchSize); });
 	}
 
-	ThreadPool::WaitAllThreads();
+    ThreadPool::WaitAllJobs();
 #else
 	for (float i = 0; i <= FRAME_COUNT; i++)
 	{
