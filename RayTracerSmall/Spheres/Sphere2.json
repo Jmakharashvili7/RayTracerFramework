@@ -1,0 +1,14 @@
+{
+    "centerX": 0.0,
+    "centerY": 0.0,
+    "centerZ": -20,
+    "radius": 4,
+    "surfaceColorX": 1.0,
+    "surfaceColorY": 0.32,
+    "surfaceColorZ": 0.36,
+    "transperency": 0.5,
+    "reflection" : 1,
+    "emissionColorX": 0.0,
+    "emissionColorY": 0.0,
+    "emissionColorZ": 0.0
+}

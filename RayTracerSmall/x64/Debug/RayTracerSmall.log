@@ -1,0 +1,162 @@
+﻿  main.cpp
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\MemoryPool.h(19,2): warning C4091: 'typedef ': ignored on left of 'MemoryChunk' when no variable is declared
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(47,1): warning C4005: 'INFINITY': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\corecrt_math.h(88): message : see previous definition of 'INFINITY'
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(101,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(107,60): warning C4305: 'argument': truncation from 'double' to 'const float'
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(107,32): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(116,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(159,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(160,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(185,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(223,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(239,81): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(240,72): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(241,73): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(242,72): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(257,83): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(258,74): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(259,75): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(260,74): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(265,83): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(266,74): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(267,75): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(268,74): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(272,83): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(273,74): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(274,75): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(275,74): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(279,83): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(280,74): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(281,75): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(282,74): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(299,1): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(300,1): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(300,55): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(301,1): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(302,1): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(325,11): warning C4244: 'argument': conversion from 'float' to 'const unsigned __int64', possible loss of data
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\type_traits(1488,67): warning C4244: 'argument': conversion from '_Ty1' to 'int', possible loss of data
+          with
+          [
+              _Ty1=float
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\thread(55): message : see reference to function template instantiation 'void std::invoke<SmoothScaling::<lambda_f06bd1c4427f14158181eb003596ed7e>,float,int>(_Callable &&,_Ty1 &&,int &&) noexcept(false)' being compiled
+          with
+          [
+              _Callable=SmoothScaling::<lambda_f06bd1c4427f14158181eb003596ed7e>,
+              _Ty1=float
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\thread(62): message : see reference to function template instantiation 'unsigned int std::thread::_Invoke<_Tuple,0,1,2>(void *) noexcept' being compiled
+          with
+          [
+              _Tuple=_Tuple
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\thread(69): message : see reference to function template instantiation 'unsigned int (__cdecl *std::thread::_Get_invoke<_Tuple,0,1,2>(std::integer_sequence<size_t,0,1,2>) noexcept)(void *)' being compiled
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\thread(90): message : see reference to function template instantiation 'void std::thread::_Start<SmoothScaling::<lambda_f06bd1c4427f14158181eb003596ed7e>&,float&,int&>(_Fn,float &,int &)' being compiled
+          with
+          [
+              _Fn=SmoothScaling::<lambda_f06bd1c4427f14158181eb003596ed7e> &
+          ]
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(318): message : see reference to function template instantiation 'std::thread::thread<SmoothScaling::<lambda_f06bd1c4427f14158181eb003596ed7e>&,float&,int&,0>(_Fn,float &,int &)' being compiled
+          with
+          [
+              _Fn=SmoothScaling::<lambda_f06bd1c4427f14158181eb003596ed7e> &
+          ]
+  RayTracerSmall.vcxproj -> C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\x64\Debug\RayTracerSmall.exe
