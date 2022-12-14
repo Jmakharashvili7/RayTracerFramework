@@ -146,6 +146,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\JsonSphere.cpp" />
+    <ClCompile Include="src\Renderer.cpp" />
     <ClCompile Include="src\Sphere.cpp" />
     <ClCompile Include="src\HelperClass.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -154,6 +156,9 @@
     <ClCompile Include="src\ThreadPool.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\JsonSphere.h" />
+    <ClInclude Include="src\Config.h" />
+    <ClInclude Include="src\Renderer.h" />
     <ClInclude Include="src\HelperClass.h" />
     <ClInclude Include="src\json.h" />
     <ClInclude Include="src\MemoryPool.h" />

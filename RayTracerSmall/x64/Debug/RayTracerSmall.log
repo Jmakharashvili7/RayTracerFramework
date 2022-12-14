@@ -2,15 +2,14 @@
 C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\MemoryPool.h(19,2): warning C4091: 'typedef ': ignored on left of 'MemoryChunk' when no variable is declared
 C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(53,1): warning C4005: 'INFINITY': macro redefinition
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\corecrt_math.h(88): message : see previous definition of 'INFINITY'
-C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(162,19): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(168,60): warning C4305: 'argument': truncation from 'double' to 'const float'
-C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(168,32): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
-C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(177,19): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(220,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(221,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(246,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(267,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(268,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(307,22): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(322,101): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(164,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(170,60): warning C4305: 'argument': truncation from 'double' to 'const float'
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(170,32): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(179,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(219,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(220,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(222,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(223,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(248,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\RayTracerSmall\src\main.cpp(345,19): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
   RayTracerSmall.vcxproj -> C:\Users\lerbo\Documents\Staffs Uni\RayTracerFramework\x64\Debug\RayTracerSmall.exe
