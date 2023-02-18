@@ -54,6 +54,8 @@ int main(int argc, char **argv)
 
 	delete[] spheres;
 	delete memPool;
+
+	//MemoryTracker::WalkTheHeap();
 	return 0;
 }
 

@@ -47,7 +47,7 @@ void Renderer::render(Sphere* spheres, uint iteration, MemoryPool* memPool)
 	}
 
 	render(ptrSpheres, iteration);
-
+		
 	for (uint i = 0; i < SPHERE_COUNT; ++i)
 	{
 		memPool->FreeMemory(ptrSpheres[i]);

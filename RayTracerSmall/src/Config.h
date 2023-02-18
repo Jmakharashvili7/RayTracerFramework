@@ -13,6 +13,7 @@
 #include "chrono"
 #include "MemoryPool.h"
 #include "JsonSphere.h"
+#include "HelperClass.h"
 #ifdef _WIN32
 #include <algorithm>
 #include <sstream>
@@ -43,8 +44,8 @@
 
 #define SPHERE_COUNT 4
 #define FRAME_COUNT 120
-#define SS_USE_THREADSS
-#define REND_USE_THREADS
+#define SS_USE_THREADS
+#define REND_USE_THREADSS
 
 
 #if defined __linux__ || defined __APPLE__
