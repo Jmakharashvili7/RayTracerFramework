@@ -220,7 +220,8 @@ Code for the linux and windows threading/forking.
 
 ![A screenshot of a computer Description automatically generated with
 medium
-confidence](./images/media/image11.png)![Text Description automatically
+confidence](./images/media/image11.png)
+![Text Description automatically
 generated](./images/media/image12.png)
 
 To make sure the application has good OOP design every class has its own
