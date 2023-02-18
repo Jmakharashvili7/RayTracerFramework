@@ -45,11 +45,10 @@ called outside of the class or are public have #ifdef \_DEBUG which
 ensures the code only gets run in debug mode.
 
 ![Text Description automatically
-generated](./images/media/image1.png){width="6.5in" height="3.90625in"}
+generated](./images/media/image1.png)
 
 ![A screenshot of a computer screen Description automatically generated
-with medium confidence](./images/media/image2.png){width="6.5in"
-height="4.113888888888889in"}
+with medium confidence](./images/media/image2.png)
 
 Next, I set up a memory pool which allocates memory on demand and
 instead of deallocating memory it simply sets the memory as free. First
@@ -70,8 +69,7 @@ we no longer need it, and the big chunk of the memory is assigned at run
 time.
 
 ![Text Description automatically
-generated](./images/media/image3.png){width="6.3577154418197726in"
-height="6.072433289588801in"}
+generated](./images/media/image3.png)
 
 To find what parts of the code need to be optimized I had to run the
 built-in performance profiler that is built into visual studio. After
@@ -86,16 +84,13 @@ theory it made sense to multithread there. Below are the results of
 multithreading the render function and then the smooth scaling.
 
 ![A screenshot of a computer Description automatically generated with
-medium confidence](./images/media/image4.png){width="6.5in"
-height="2.797222222222222in"}
+medium confidence](./images/media/image4.png)
 
 ![A screenshot of a computer Description automatically generated with
-medium confidence](./images/media/image5.png){width="6.5in"
-height="2.675in"}
+medium confidence](./images/media/image5.png)
 
 ![Text Description automatically
-generated](./images/media/image6.png){width="6.5in"
-height="2.1041666666666665in"}
+generated](./images/media/image6.png)
 
 As can be seen in the last picture the improved ofs.write() function
 only takes 0.2% of the time which is around ten times better than the
@@ -106,15 +101,13 @@ Ray Tracing Multi-Threading Optimization results. My computer is running
 was input into the table.
 
 ![Chart Description automatically
-generated](./images/media/image7.png){width="6.5in"
-height="4.8902777777777775in"}
+generated](./images/media/image7.png)
 
 Precise results from the testing:
 
 ![A screenshot of a computer screen Description automatically generated
 with medium
-confidence](./images/media/image8.png){width="3.6164785651793525in"
-height="3.022997594050744in"}
+confidence](./images/media/image8.png)
 
 Using more than 100 threads seemed to have completely crashed the
 application. I've tested 200 and 1000 threads and the application would
@@ -199,13 +192,11 @@ the results into them making sure the original sphere array is not
 affected.
 
 ![A screenshot of a computer Description automatically generated with
-medium confidence](./images/media/image9.png){width="6.5in"
-height="1.5354166666666667in"}
+medium confidence](./images/media/image9.png)
 
 ![A screenshot of a computer Description automatically generated with
 medium
-confidence](./images/media/image10.png){width="6.344635826771653in"
-height="2.8962379702537184in"}
+confidence](./images/media/image10.png)
 
 When it was time to port the application, I decided to develop a thread
 pool class which checks if win32 is defined. If win 32 is defined the
@@ -229,10 +220,8 @@ Code for the linux and windows threading/forking.
 
 ![A screenshot of a computer Description automatically generated with
 medium
-confidence](./images/media/image11.png){width="3.1566907261592303in"
-height="4.2714293525809275in"}![Text Description automatically
-generated](./images/media/image12.png){width="4.542300962379702in"
-height="3.7505238407699037in"}
+confidence](./images/media/image11.png)![Text Description automatically
+generated](./images/media/image12.png)
 
 To make sure the application has good OOP design every class has its own
 header and cpp file so the code is clean and easy to read. Main cpp file
@@ -240,9 +229,7 @@ only contains the main function and two header files to keep it short
 and clean.
 
 ![Text Description automatically
-generated](./images/media/image13.png){width="6.5in"
-height="4.719444444444444in"}
+generated](./images/media/image13.png)
 
 ![Text Description automatically
-generated](./images/media/image14.png){width="1.7398261154855643in"
-height="3.3129625984251967in"}
+generated](./images/media/image14.png)
